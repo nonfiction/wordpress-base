@@ -1,7 +1,7 @@
 # apache-php base image for Wordpress
 
-This extends the `php:7.4-apache` with a few additional packages we rely for
-deploying wordpress websites.
+This extends `php:7.4-apache` with a few additional packages we rely on for
+deploying Wordpress websites.
 
 
 ## Makefile commands:  
