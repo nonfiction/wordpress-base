@@ -86,6 +86,8 @@ RUN set -ex; \
   echo '#!/bin/sh' >> /usr/local/bin/wp; \
   echo 'wp-cli.phar "$@" --allow-root' >> /usr/local/bin/wp; \
   chmod +x /usr/local/bin/wp;
+RUN mkdir -p /srv/web
+COPY ./config/wp-cli.yml /srv/wp-cli.yml
 
 # Self-signed certificate for https
 RUN openssl req -x509 -batch -nodes -days 36525 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
@@ -100,3 +102,4 @@ RUN usermod -u 1000 -g 1000 www-data
 
 EXPOSE 80
 EXPOSE 443
+WORKDIR /srv
