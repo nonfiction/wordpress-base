@@ -76,7 +76,6 @@ RUN set -ex; \
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY ./composer.json /srv/composer.json
 
 # WP-CLI
 RUN set -ex; \
@@ -86,7 +85,6 @@ RUN set -ex; \
   echo '#!/bin/sh' >> /usr/local/bin/wp; \
   echo 'wp-cli.phar "$@" --allow-root' >> /usr/local/bin/wp; \
   chmod +x /usr/local/bin/wp;
-COPY ./wp-cli.yml /srv/wp-cli.yml
 
 # Self-signed certificate for https
 RUN openssl req -x509 -batch -nodes -days 36525 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
