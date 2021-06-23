@@ -59,6 +59,7 @@ RUN set -ex; a2enmod \
 
 # Configure Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+COPY ./config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Properly log IP addresses when behind proxy
 # https://github.com/docker-library/wordpress/issues/383
@@ -91,7 +92,7 @@ RUN openssl req -x509 -batch -nodes -days 36525 -newkey rsa:2048 -keyout /etc/ss
 
 # Install pagespeed
 RUN curl https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb > /tmp/pagespeed.deb
-RUN dpkg -i /tmp/pagespeed.deb
+RUN dpkg -i /tmp/pagespeed.deb && rm /tmp/pagespeed.deb
 
 # Set www-data's ID to 1000
 RUN groupmod -g 1000 www-data
