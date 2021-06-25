@@ -5,7 +5,8 @@ FROM php:7.4-apache
 # Install packages we need for WordPress
 RUN set -ex; \
   apt-get update; \
-  apt-get install -y --no-install-recommends \
+  DEBIAN_FRONTEND=noninteractive \
+  apt-get install -q -y --no-install-recommends \
     ghostscript \
     git-core \
     less \
@@ -16,7 +17,13 @@ RUN set -ex; \
     libzip-dev \
     unzip \
     zlib1g-dev \
+    mailutils \
+    msmtp \
+    msmtp-mta \
   ;
+
+# Add config for SendGrid
+COPY ./config/msmtprc /etc/msmtprc
 
 # https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions
 RUN set -ex; \
