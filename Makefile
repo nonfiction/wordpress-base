@@ -1,5 +1,5 @@
 tag := v1
 update: build push
-build: ; docker buildx build -t nonfiction/apache-php:$(tag) .
-push:	 ; docker push nonfiction/apache-php:$(tag)
-shell: ; docker run -it --rm nonfiction/apache-php:$(tag) bash
+build: ; docker buildx build -t nonfiction/wordpress-base:$(tag) .
+push:	 ; docker push nonfiction/wordpress-base:$(tag)
+shell: ; docker run -it --rm nonfiction/wordpress-base:$(tag) bash

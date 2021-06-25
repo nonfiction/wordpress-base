@@ -6,7 +6,6 @@ FROM php:7.4-apache
 RUN set -ex; \
   apt-get update; \
   apt-get install -y --no-install-recommends \
-    cron \
     ghostscript \
     git-core \
     less \
