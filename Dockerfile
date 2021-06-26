@@ -99,13 +99,14 @@ COPY ./config/wp-cli.yml /srv/wp-cli.yml
 # Self-signed certificate for https
 RUN openssl req -x509 -batch -nodes -days 36525 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 
-# Install pagespeed
-RUN curl https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb > /tmp/pagespeed.deb
-RUN dpkg -i /tmp/pagespeed.deb && rm /tmp/pagespeed.deb
-
 # Set www-data's ID to 1000
 RUN groupmod -g 1000 www-data
 RUN usermod -u 1000 -g 1000 www-data
+
+# Install pagespeed
+RUN curl https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb > /tmp/pagespeed.deb
+RUN dpkg -i /tmp/pagespeed.deb && rm /tmp/pagespeed.deb
+RUN mkdir -p /var/cache/mod_pagespeed && chown -R www-data:www-data /var/cache/mod_pagespeed
 
 EXPOSE 80
 EXPOSE 443
