@@ -22,8 +22,9 @@ RUN set -ex; \
     msmtp-mta \
   ;
 
-# Add config for SendGrid
-COPY ./config/msmtprc /etc/msmtprc
+# Install esh and add config for SendGrid
+RUN curl -fsSL https://github.com/jirutka/esh/raw/master/esh > /bin/esh && chmod +x /bin/esh
+COPY ./config/msmtprc.esh /etc/msmtprc.esh
 
 # https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions
 RUN set -ex; \
