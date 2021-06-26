@@ -3,9 +3,9 @@ auth           on
 tls            on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 account        wordpress
-host           <%= $SMTP_HOST -%>
-port           <%= $SMTP_PORT -%>
+host           <%= $SMTP_HOST %>
+port           <%= $SMTP_PORT %>
 from           web@nonfiction.ca
-user           <%= $SMTP_USER -%>
-password       <%= $SMTP_PASSWORD -%>
+user           <%= $SMTP_USER %>
+password       <%= $SMTP_PASSWORD %>
 account default : wordpress
