@@ -1,4 +1,4 @@
-tag := v1
+tag := v2
 update: build push
 build: ; docker buildx build -t nonfiction/wordpress-base:$(tag) .
 push:	 ; docker push nonfiction/wordpress-base:$(tag)

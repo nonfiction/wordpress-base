@@ -6,7 +6,7 @@ deploying Wordpress websites.
 ## Usage:
 
 ```dockerfile
-FROM nonfiction/wordpress-base:v1
+FROM nonfiction/wordpress-base:v2
 # ...
 ```
 

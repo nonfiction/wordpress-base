@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: nonfiction/wordpress-base:v1
+          tags: nonfiction/wordpress-base:v2
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

@@ -110,6 +110,10 @@ RUN curl https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_
 RUN dpkg -i /tmp/pagespeed.deb && rm /tmp/pagespeed.deb
 RUN mkdir -p /var/cache/mod_pagespeed && chown -R www-data:www-data /var/cache/mod_pagespeed
 
+# Wordpress health for rolling updates
+STOPSIGNAL WINCH
+HEALTHCHECK CMD curl -fIsk -o /dev/null https://127.0.0.1/wp/wp-admin/images/wordpress-logo.svg || exit 1
+
 EXPOSE 80
 EXPOSE 443
 WORKDIR /srv
