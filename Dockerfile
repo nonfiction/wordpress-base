@@ -37,7 +37,7 @@ RUN set -ex; \
     opcache \
     zip \
   ; \
-  pecl install imagick-3.4.4; \
+  pecl install imagick-3.7.0; \
   docker-php-ext-enable imagick; \
   pecl install redis; \
   docker-php-ext-enable redis
