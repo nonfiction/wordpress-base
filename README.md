@@ -1,12 +1,12 @@
 # PHP/Apache base image for Wordpress
 
-This extends `php:7.4-apache` with a few additional packages we rely on for
+This extends `php:8.1-apache` with a few additional packages we rely on for
 deploying Wordpress websites.
 
 ## Usage:
 
 ```dockerfile
-FROM nonfiction/wordpress-base:v2
+FROM nonfiction/wordpress-base:v3
 # ...
 ```
 
