@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/php/
 # https://github.com/docker-library/php
-FROM php:8.1-apache
+FROM php:8.2-apache
 
 # Install packages we need for WordPress
 RUN set -ex; \
