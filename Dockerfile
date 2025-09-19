@@ -11,6 +11,7 @@ RUN set -ex; \
     git-core \
     less \
     libfreetype6-dev \
+    libicu-dev \
     libjpeg-dev \
     libmagickwand-dev \
     libpng-dev \
@@ -33,6 +34,7 @@ RUN set -ex; \
     bcmath \
     exif \
     gd \
+    intl \
     mysqli \
     opcache \
     zip \
